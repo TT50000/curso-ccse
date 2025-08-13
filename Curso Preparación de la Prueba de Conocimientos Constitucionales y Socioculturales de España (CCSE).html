@@ -1,0 +1,480 @@
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Curso Interactivo CCSE</title>
+    <style>
+        /* Estilos Generales */
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+            line-height: 1.6;
+            background-color: #f4f7f9;
+            color: #333;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+
+        #app-container {
+            width: 90%;
+            max-width: 1200px;
+            background: #fff;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            overflow: hidden;
+            margin: 20px 0;
+        }
+
+        header {
+            background-color: #005c99; /* Azul institucional */
+            color: white;
+            padding: 20px 30px;
+            border-bottom: 4px solid #f7b300; /* Amarillo bandera */
+        }
+
+        header h1 {
+            margin: 0;
+            font-size: 1.8em;
+            text-align: center;
+        }
+
+        /* Barra de Progreso */
+        .progress-container {
+            margin-top: 15px;
+        }
+
+        .progress-bar-label {
+            font-size: 0.9em;
+            margin-bottom: 5px;
+            text-align: center;
+        }
+
+        .progress-bar {
+            background-color: #e0e0e0;
+            border-radius: 20px;
+            height: 20px;
+            width: 100%;
+            overflow: hidden;
+        }
+
+        #progress-bar-fill {
+            background-color: #4caf50; /* Verde para progreso */
+            height: 100%;
+            width: 0%;
+            border-radius: 20px;
+            transition: width 0.5s ease-in-out;
+        }
+
+        #progress-text {
+            display: block;
+            text-align: center;
+            font-weight: bold;
+            margin-top: 5px;
+        }
+
+        /* Contenido Principal */
+        #main-content {
+            display: flex;
+        }
+
+        #module-list {
+            width: 25%;
+            background: #f8f9fa;
+            padding: 20px;
+            border-right: 1px solid #dee2e6;
+        }
+
+        #module-list h2 {
+            font-size: 1.3em;
+            color: #005c99;
+            margin-top: 0;
+            border-bottom: 2px solid #dee2e6;
+            padding-bottom: 10px;
+        }
+
+        .module-item {
+            display: block;
+            width: 100%;
+            padding: 12px 15px;
+            margin-bottom: 8px;
+            background-color: #fff;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            cursor: pointer;
+            text-align: left;
+            font-size: 1em;
+            transition: background-color 0.3s, border-color 0.3s;
+        }
+
+        .module-item:hover {
+            background-color: #e9ecef;
+        }
+
+        .module-item.completed {
+            background-color: #d4edda; /* Verde claro para completado */
+            border-color: #c3e6cb;
+            font-weight: bold;
+        }
+
+        .module-item.active {
+            background-color: #007bff;
+            color: white;
+            border-color: #007bff;
+        }
+
+        #content-area {
+            width: 75%;
+            padding: 30px;
+            overflow-y: auto;
+        }
+
+        .hidden {
+            display: none;
+        }
+
+        /* Estilos del Módulo y Quiz */
+        #module-title {
+            color: #005c99;
+            margin-top: 0;
+        }
+
+        #quiz-container {
+            margin-top: 25px;
+            border-top: 1px solid #eee;
+            padding-top: 20px;
+        }
+
+        .question-block {
+            margin-bottom: 20px;
+        }
+
+        .question-block p {
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+
+        .option {
+            display: block;
+            margin-bottom: 8px;
+        }
+
+        #submit-quiz-btn {
+            background-color: #007bff;
+            color: white;
+            border: none;
+            padding: 12px 25px;
+            font-size: 1em;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-top: 20px;
+            transition: background-color 0.3s;
+        }
+
+        #submit-quiz-btn:hover {
+            background-color: #0056b3;
+        }
+
+        #quiz-feedback {
+            margin-top: 20px;
+            padding: 15px;
+            border-radius: 5px;
+            font-weight: bold;
+        }
+
+        #quiz-feedback.correct {
+            background-color: #d4edda;
+            color: #155724;
+            border: 1px solid #c3e6cb;
+        }
+
+        #quiz-feedback.incorrect {
+            background-color: #f8d7da;
+            color: #721c24;
+            border: 1px solid #f5c6cb;
+        }
+    </style>
+</head>
+<body>
+    <div id="app-container">
+        <header>
+            <h1>Curso Interactivo de Preparación CCSE</h1>
+            <div class="progress-container">
+                <div class="progress-bar-label">Progreso Total</div>
+                <div class="progress-bar">
+                    <div id="progress-bar-fill"></div>
+                </div>
+                <span id="progress-text">0%</span>
+            </div>
+        </header>
+
+        <div id="main-content">
+            <aside id="module-list">
+                <h2>Módulos de Aprendizaje</h2>
+                <!-- Los módulos se generarán aquí con JS -->
+            </aside>
+
+            <main id="content-area">
+                <section id="welcome-message">
+                    <h2>Bienvenido/a</h2>
+                    <p>Selecciona un módulo de la lista para comenzar tu aprendizaje.</p>
+                    <p>Completa el test de cada módulo para avanzar en tu progreso.</p>
+                </section>
+
+                <article id="module-content" class="hidden">
+                    <h2 id="module-title"></h2>
+                    <p id="module-summary"></p>
+                    <div id="quiz-container"></div>
+                    <button id="submit-quiz-btn" class="hidden">Comprobar Respuestas</button>
+                    <div id="quiz-feedback"></div>
+                </article>
+            </main>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+
+            const modules = [
+                {
+                    id: 1,
+                    title: 'Módulo 1: Gobierno, legislación y participación',
+                    summary: 'Este módulo cubre la estructura del Gobierno de España, la monarquía parlamentaria, la división de poderes (legislativo, ejecutivo y judicial), las Cortes Generales y las principales instituciones del Estado.',
+                    questions: [
+                        {
+                            question: '¿Quién es el Jefe del Estado en España?',
+                            options: ['El Presidente del Gobierno', 'El Rey', 'El Presidente del Congreso'],
+                            answer: 'El Rey'
+                        },
+                        {
+                            question: '¿Qué poder del Estado elabora y aprueba las leyes?',
+                            options: ['El poder ejecutivo', 'El poder judicial', 'El poder legislativo'],
+                            answer: 'El poder legislativo'
+                        },
+                        {
+                            question: 'El Gobierno de España está formado por el Presidente, vicepresidentes y...',
+                            options: ['Ministros', 'Senadores', 'Jueces'],
+                            answer: 'Ministros'
+                        }
+                    ],
+                    completed: false
+                },
+                {
+                    id: 2,
+                    title: 'Módulo 2: Derechos y deberes fundamentales',
+                    summary: 'Se centra en la Constitución española de 1978 como norma suprema. Explora los derechos fundamentales, las libertades públicas y los deberes de los ciudadanos españoles, como el derecho a la educación o la igualdad ante la ley.',
+                    questions: [
+                        {
+                            question: '¿Cuál es la ley más importante de España?',
+                            options: ['El Código Civil', 'La Constitución', 'El Código Penal'],
+                            answer: 'La Constitución'
+                        },
+                        {
+                            question: '¿A qué edad se alcanza la mayoría de edad en España?',
+                            options: ['16 años', '18 años', '21 años'],
+                            answer: '18 años'
+                        },
+                        {
+                            question: '¿Tienen los ciudadanos españoles derecho a la educación?',
+                            options: ['Sí, es un derecho fundamental', 'No, es un servicio de pago', 'Solo la educación primaria'],
+                            answer: 'Sí, es un derecho fundamental'
+                        }
+                    ],
+                    completed: false
+                },
+                {
+                    id: 3,
+                    title: 'Módulo 3: Organización territorial y geografía',
+                    summary: 'Describe la organización de España en Comunidades Autónomas, provincias y municipios. También se tratan aspectos clave de la geografía física, como los principales ríos, montañas y la situación de España en Europa.',
+                    questions: [
+                        {
+                            question: 'España se organiza territorialmente en municipios, provincias y...',
+                            options: ['Regiones', 'Departamentos', 'Comunidades Autónomas'],
+                            answer: 'Comunidades Autónomas'
+                        },
+                        {
+                            question: '¿Cuál es la capital de España?',
+                            options: ['Barcelona', 'Sevilla', 'Madrid'],
+                            answer: 'Madrid'
+                        },
+                        {
+                            question: '¿En qué península se encuentra la mayor parte de España?',
+                            options: ['Península Itálica', 'Península Ibérica', 'Península Balcánica'],
+                            answer: 'Península Ibérica'
+                        }
+                    ],
+                    completed: false
+                },
+                {
+                    id: 4,
+                    title: 'Módulo 4: Cultura, historia y sociedad',
+                    summary: 'Un recorrido por la rica herencia cultural e histórica de España. Incluye figuras destacadas del arte y la literatura como Cervantes, Goya o Picasso, fiestas populares como las Fallas y la Feria de Abril, y tradiciones.',
+                    questions: [
+                        {
+                            question: '¿Quién es el autor de la famosa novela \'El Quijote\'?',
+                            options: ['Federico García Lorca', 'Miguel de Cervantes', 'Camilo José Cela'],
+                            answer: 'Miguel de Cervantes'
+                        },
+                        {
+                            question: 'La fiesta de las Fallas es una tradición popular de la ciudad de...',
+                            options: ['Sevilla', 'Valencia', 'Pamplona'],
+                            answer: 'Valencia'
+                        },
+                        {
+                            question: '¿Qué pintor es famoso por su obra \'Guernica\'?',
+                            options: ['Salvador Dalí', 'Francisco de Goya', 'Pablo Picasso'],
+                            answer: 'Pablo Picasso'
+                        }
+                    ],
+                    completed: false
+                },
+                {
+                    id: 5,
+                    title: 'Módulo 5: Sociedad española',
+                    summary: 'Analiza aspectos de la vida cotidiana y la sociedad en la España actual. Cubre temas como el sistema educativo, el sistema sanitario público, los medios de comunicación y trámites administrativos importantes como la obtención del DNI.',
+                    questions: [
+                        {
+                            question: '¿Cómo se llama el documento oficial de identidad para los españoles?',
+                            options: ['Pasaporte', 'NIE', 'DNI'],
+                            answer: 'DNI'
+                        },
+                        {
+                            question: 'La educación obligatoria en España se extiende hasta los...',
+                            options: ['14 años', '16 años', '18 años'],
+                            answer: '16 años'
+                        },
+                        {
+                            question: '¿Cómo se denomina al sistema de salud público en España?',
+                            options: ['Seguridad Social', 'Sistema Nacional de Salud', 'Sanitas'],
+                            answer: 'Sistema Nacional de Salud'
+                        }
+                    ],
+                    completed: false
+                }
+            ];
+
+            const moduleListContainer = document.getElementById('module-list');
+            const welcomeMessage = document.getElementById('welcome-message');
+            const moduleContent = document.getElementById('module-content');
+            const moduleTitle = document.getElementById('module-title');
+            const moduleSummary = document.getElementById('module-summary');
+            const quizContainer = document.getElementById('quiz-container');
+            const submitQuizBtn = document.getElementById('submit-quiz-btn');
+            const quizFeedback = document.getElementById('quiz-feedback');
+            const progressBarFill = document.getElementById('progress-bar-fill');
+            const progressText = document.getElementById('progress-text');
+
+            let activeModuleId = null;
+
+            function renderModuleList() {
+                moduleListContainer.innerHTML = '<h2>Módulos de Aprendizaje</h2>';
+                modules.forEach(module => {
+                    const button = document.createElement('button');
+                    button.className = 'module-item';
+                    button.textContent = module.title;
+                    button.dataset.id = module.id;
+                    if (module.completed) {
+                        button.classList.add('completed');
+                    }
+                    if (module.id === activeModuleId) {
+                        button.classList.add('active');
+                    }
+                    button.addEventListener('click', () => displayModule(module.id));
+                    moduleListContainer.appendChild(button);
+                });
+            }
+
+            function displayModule(moduleId) {
+                activeModuleId = moduleId;
+                const module = modules.find(m => m.id === moduleId);
+
+                welcomeMessage.classList.add('hidden');
+                moduleContent.classList.remove('hidden');
+
+                moduleTitle.textContent = module.title;
+                moduleSummary.textContent = module.summary;
+
+                renderQuiz(module);
+                renderModuleList();
+            }
+
+            function renderQuiz(module) {
+                quizContainer.innerHTML = '';
+                quizFeedback.innerHTML = '';
+                quizFeedback.className = 'hidden';
+
+                if (module.completed) {
+                    quizContainer.innerHTML = '<p>¡Ya has completado este test!</p>';
+                    submitQuizBtn.classList.add('hidden');
+                    return;
+                }
+
+                module.questions.forEach((q, index) => {
+                    const questionBlock = document.createElement('div');
+                    questionBlock.className = 'question-block';
+                    
+                    const questionText = document.createElement('p');
+                    questionText.textContent = `${index + 1}. ${q.question}`;
+                    questionBlock.appendChild(questionText);
+
+                    q.options.forEach(option => {
+                        const label = document.createElement('label');
+                        label.className = 'option';
+                        
+                        const input = document.createElement('input');
+                        input.type = 'radio';
+                        input.name = `question-${index}`;
+                        input.value = option;
+                        
+                        label.appendChild(input);
+                        label.append(` ${option}`);
+                        questionBlock.appendChild(label);
+                    });
+
+                    quizContainer.appendChild(questionBlock);
+                });
+
+                submitQuizBtn.classList.remove('hidden');
+                submitQuizBtn.onclick = () => checkQuiz(module);
+            }
+
+            function checkQuiz(module) {
+                let correctAnswers = 0;
+                module.questions.forEach((q, index) => {
+                    const selectedOption = document.querySelector(`input[name='question-${index}']:checked`);
+                    if (selectedOption && selectedOption.value === q.answer) {
+                        correctAnswers++;
+                    }
+                });
+
+                quizFeedback.classList.remove('hidden');
+                if (correctAnswers === module.questions.length) {
+                    quizFeedback.textContent = '¡Felicidades! Has respondido todo correctamente.';
+                    quizFeedback.className = 'correct';
+                    module.completed = true;
+                    submitQuizBtn.classList.add('hidden');
+                    updateProgress();
+                    renderModuleList();
+                } else {
+                    quizFeedback.textContent = `Has respondido ${correctAnswers} de ${module.questions.length} correctamente. ¡Inténtalo de nuevo!`;
+                    quizFeedback.className = 'incorrect';
+                }
+            }
+
+            function updateProgress() {
+                const completedModules = modules.filter(m => m.completed).length;
+                const totalModules = modules.length;
+                const progressPercentage = (completedModules / totalModules) * 100;
+
+                progressBarFill.style.width = `${progressPercentage}%`;
+                progressText.textContent = `${Math.round(progressPercentage)}%`;
+            }
+
+            // Initial render
+            renderModuleList();
+            updateProgress();
+        });
+    </script>
+</body>
+</html>
