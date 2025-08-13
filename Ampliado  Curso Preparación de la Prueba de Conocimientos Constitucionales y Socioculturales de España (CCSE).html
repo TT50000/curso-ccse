@@ -1,0 +1,400 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Curso Interactivo CCSE 2025 (Versión Ampliada)</title>
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 20px;
+            background-color: #f8f9fa;
+            color: #212529;
+        }
+        .course-container {
+            max-width: 800px;
+            margin: auto;
+            background: #fff;
+            padding: 25px;
+            border-radius: 10px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+        }
+        h1, h2 {
+            color: #0056b3;
+            border-bottom: 2px solid #dee2e6;
+            padding-bottom: 10px;
+        }
+        .progress-bar-container {
+            width: 100%;
+            background-color: #e9ecef;
+            border-radius: .25rem;
+            margin-bottom: 25px;
+            overflow: hidden;
+        }
+        .progress-bar {
+            width: 0%;
+            height: 25px;
+            background-color: #28a745;
+            text-align: center;
+            line-height: 25px;
+            color: white;
+            transition: width 0.5s ease-in-out;
+        }
+        .module {
+            display: none;
+            border: 1px solid #ddd;
+            padding: 25px;
+            margin-top: 20px;
+            border-radius: 8px;
+            background-color: #fdfdfd;
+        }
+        .module.active {
+            display: block;
+        }
+        .module-content {
+            background-color: #f0f8ff;
+            padding: 20px;
+            border-left: 5px solid #007bff;
+            margin-bottom: 25px;
+            border-radius: 5px;
+        }
+        .module-content h3 {
+            margin-top: 0;
+            color: #0056b3;
+        }
+        .quiz-form .question {
+            margin-bottom: 18px;
+            padding-bottom: 10px;
+            border-bottom: 1px solid #eee;
+        }
+        .quiz-form .question:last-child {
+            border-bottom: none;
+        }
+        .quiz-form .options label {
+            display: block;
+            margin: 8px 0;
+            padding: 12px;
+            border-radius: 5px;
+            cursor: pointer;
+            border: 1px solid #ccc;
+            transition: background-color 0.2s, border-color 0.2s;
+        }
+        .quiz-form .options label:hover {
+            background-color: #e9ecef;
+        }
+        .quiz-form .options input {
+            margin-right: 12px;
+        }
+        .button {
+            display: inline-block;
+            background-color: #007bff;
+            color: white;
+            padding: 12px 22px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            font-weight: bold;
+            margin-top: 10px;
+            transition: background-color 0.3s;
+        }
+        .button:hover {
+            background-color: #0056b3;
+        }
+        .button.next-btn {
+            background-color: #28a745;
+        }
+        .button.next-btn:hover {
+            background-color: #218838;
+        }
+        .button:disabled {
+            background-color: #adb5bd;
+            cursor: not-allowed;
+        }
+        .quiz-results {
+            margin-top: 20px;
+            padding: 15px;
+            border-radius: 5px;
+            font-weight: bold;
+        }
+        .quiz-results.correct {
+            background-color: #d1e7dd;
+            border: 1px solid #badbcc;
+            color: #0f5132;
+        }
+        .quiz-results.incorrect {
+            background-color: #f8d7da;
+            border: 1px solid #f5c2c7;
+            color: #842029;
+        }
+        .correct-answer-label {
+            background-color: #d1e7dd !important;
+            border-color: #badbcc !important;
+        }
+        .incorrect-answer-label {
+            background-color: #f8d7da !important;
+            border-color: #f5c2c7 !important;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="course-container">
+        <h1>Curso Interactivo CCSE 2025 (Versión Ampliada)</h1>
+        <p>Bienvenido a la versión completa y detallada del curso de preparación para la prueba de Conocimientos Constitucionales y Socioculturales de España.</p>
+
+        <div class="progress-bar-container">
+            <div class="progress-bar" id="progressBar">0%</div>
+        </div>
+
+        <!-- Módulo 1 -->
+        <div id="module-1" class="module active">
+            <h2>Módulo 1: La Constitución y los Poderes del Estado</h2>
+            <div class="module-content">
+                <h3>Contenido del Módulo</h3>
+                <p>La Constitución española fue aprobada en referéndum por los españoles el 6 de diciembre de 1978. Es la «ley de leyes» o ley fundamental de España. Los principios en los que se basa son: el respeto a los derechos humanos y las leyes, la protección de las diferencias de los pueblos de España, el desarrollo de un sistema social y económico para una vida digna, y la colaboración entre los pueblos de la Tierra. El Reino de España es un Estado social y democrático de Derecho con la forma política de monarquía parlamentaria. La soberanía nacional reside en el pueblo español. El Tribunal Constitucional interpreta la Constitución española. La bandera de España tiene tres franjas (roja, amarilla y roja). El castellano es la lengua oficial de España.</p>
+            </div>
+            <form id="quiz-1" class="quiz-form">
+                <!-- 10 preguntas -->
+                <div class="question"><p><strong>1. ¿En qué fecha fue aprobada la Constitución española en referéndum?</strong></p><div class="options"><label><input type="radio" name="q1" value="a">a) 1 de enero de 1978</label><label><input type="radio" name="q1" value="b">b) 6 de diciembre de 1978</label><label><input type="radio" name="q1" value="c">c) 12 de octubre de 1979</label></div></div>
+                <div class="question"><p><strong>2. ¿Cómo se define la forma política del Estado español?</strong></p><div class="options"><label><input type="radio" name="q2" value="a">a) República federal</label><label><input type="radio" name="q2" value="b">b) Monarquía absoluta</label><label><input type="radio" name="q2" value="c">c) Monarquía parlamentaria</label></div></div>
+                <div class="question"><p><strong>3. ¿En quién reside la soberanía nacional?</strong></p><div class="options"><label><input type="radio" name="q3" value="a">a) En el Rey</label><label><input type="radio" name="q3" value="b">b) En el pueblo español</label><label><input type="radio" name="q3" value="c">c) En las Cortes Generales</label></div></div>
+                <div class="question"><p><strong>4. ¿Qué organismo interpreta la Constitución española?</strong></p><div class="options"><label><input type="radio" name="q4" value="a">a) El Tribunal Supremo</label><label><input type="radio" name="q4" value="b">b) El Consejo de Estado</label><label><input type="radio" name="q4" value="c">c) El Tribunal Constitucional</label></div></div>
+                <div class="question"><p><strong>5. ¿Cuál es la lengua oficial de España según la Constitución?</strong></p><div class="options"><label><input type="radio" name="q5" value="a">a) El castellano</label><label><input type="radio" name="q5" value="b">b) El catalán</label><label><input type="radio" name="q5" value="c">c) El gallego y el vasco</label></div></div>
+                <div class="question"><p><strong>6. ¿Cuántas franjas tiene la bandera de España?</strong></p><div class="options"><label><input type="radio" name="q6" value="a">a) Dos</label><label><input type="radio" name="q6" value="b">b) Tres</label><label><input type="radio" name="q6" value="c">c) Cuatro</label></div></div>
+                <div class="question"><p><strong>7. ¿Cuál de estos NO es un principio de la Constitución?</strong></p><div class="options"><label><input type="radio" name="q7" value="a">a) Respeto a los derechos humanos</label><label><input type="radio" name="q7" value="b">b) La imposición de una única cultura</label><label><input type="radio" name="q7" value="c">c) Colaboración entre los pueblos</label></div></div>
+                <div class="question"><p><strong>8. El Estado español es un Estado social y...</strong></p><div class="options"><label><input type="radio" name="q8" value="a">a) Autoritario de Derecho</label><label><input type="radio" name="q8" value="b">b) Democrático de Derecho</label><label><input type="radio" name="q8" value="c">c) Centralista</label></div></div>
+                <div class="question"><p><strong>9. ¿Las demás lenguas españolas pueden ser oficiales?</strong></p><div class="options"><label><input type="radio" name="q9" value="a">a) No, solo el castellano</label><label><input type="radio" name="q9" value="b">b) Sí, en sus respectivas comunidades autónomas</label><label><input type="radio" name="q9" value="c">c) Solo para asuntos culturales</label></div></div>
+                <div class="question"><p><strong>10. La Constitución también es conocida como...</strong></p><div class="options"><label><input type="radio" name="q10" value="a">a) La Carta Magna</label><label><input type="radio" name="q10" value="b">b) El Código Civil</label><label><input type="radio" name="q10" value="c">c) El Estatuto Básico</label></div></div>
+                <button type="button" class="button" onclick="checkAnswers(1)">Evaluar Módulo 1</button>
+                <div id="results-1" class="quiz-results" style="display:none;"></div>
+                <button type="button" id="next-btn-1" class="button next-btn" style="display:none;" onclick="showModule(2)">Siguiente Módulo →</button>
+            </form>
+        </div>
+
+        <!-- Módulo 2 -->
+        <div id="module-2" class="module">
+            <h2>Módulo 2: La Corona y Organismos Internacionales</h2>
+            <div class="module-content">
+                <h3>Contenido del Módulo</h3>
+                <p>El rey de España es el jefe del Estado y modera el funcionamiento de las instituciones. Sanciona y promulga las leyes, nombra a los miembros del Gobierno y tiene el mando supremo de las Fuerzas Armadas. La Corona es hereditaria. El heredero tiene el título de Príncipe o Princesa de Asturias. España se unió a la Unión Europea (UE) el 1 de enero de 1986. La bandera de la UE es azul con 12 estrellas amarillas. España también es miembro de la ONU, la OTAN, el Consejo de Europa y la OCDE, entre otros. Ocupa un lugar especial en la Comunidad Iberoamericana de Naciones.</p>
+            </div>
+            <form id="quiz-2" class="quiz-form">
+                <!-- 10 preguntas -->
+                <div class="question"><p><strong>1. ¿Quién es el jefe del Estado en España?</strong></p><div class="options"><label><input type="radio" name="q1" value="a">a) El Presidente del Gobierno</label><label><input type="radio" name="q1" value="b">b) El Rey</label><label><input type="radio" name="q1" value="c">c) El Presidente del Tribunal Constitucional</label></div></div>
+                <div class="question"><p><strong>2. ¿Qué título ostenta el heredero de la Corona de España?</strong></p><div class="options"><label><input type="radio" name="q2" value="a">a) Príncipe de España</label><label><input type="radio" name="q2" value="b">b) Duque de Madrid</label><label><input type="radio" name="q2" value="c">c) Príncipe o Princesa de Asturias</label></div></div>
+                <div class="question"><p><strong>3. ¿En qué año se unió España a la actual Unión Europea?</strong></p><div class="options"><label><input type="radio" name="q3" value="a">a) 1978</label><label><input type="radio" name="q3" value="b">b) 1986</label><label><input type="radio" name="q3" value="c">c) 1992</label></div></div>
+                <div class="question"><p><strong>4. ¿Cuál de estas funciones NO corresponde al rey?</strong></p><div class="options"><label><input type="radio" name="q4" value="a">a) Sancionar y promulgar las leyes</label><label><input type="radio" name="q4" value="b">b) Escribir las leyes</label><label><input type="radio" name="q4" value="c">c) Ser el mando supremo de las Fuerzas Armadas</label></div></div>
+                <div class="question"><p><strong>5. ¿Cuántas estrellas tiene la bandera de la Unión Europea?</strong></p><div class="options"><label><input type="radio" name="q5" value="a">a) 10</label><label><input type="radio" name="q5" value="b">b) 12</label><label><input type="radio" name="q5" value="c">c) 15</label></div></div>
+                <div class="question"><p><strong>6. ¿De qué color son las estrellas de la bandera de la UE?</strong></p><div class="options"><label><input type="radio" name="q6" value="a">a) Blancas</label><label><input type="radio" name="q6" value="b">b) Amarillas</label><label><input type="radio" name="q6" value="c">c) Rojas</label></div></div>
+                <div class="question"><p><strong>7. ¿Cuál de estas organizaciones NO es una de la que España forma parte?</strong></p><div class="options"><label><input type="radio" name="q7" value="a">a) ONU</label><label><input type="radio" name="q7" value="b">b) OTAN</label><label><input type="radio" name="q7" value="c">c) MERCOSUR</label></div></div>
+                <div class="question"><p><strong>8. La Corona en España es...</strong></p><div class="options"><label><input type="radio" name="q8" value="a">a) Electiva</label><label><input type="radio" name="q8" value="b">b) Hereditaria</label><label><input type="radio" name="q8" value="c">c) Rotativa</label></div></div>
+                <div class="question"><p><strong>9. ¿Quién nombra a los miembros del Gobierno?</strong></p><div class="options"><label><input type="radio" name="q9" value="a">a) El Rey, a propuesta del presidente</label><label><input type="radio" name="q9" value="b">b) El Congreso de los Diputados</label><label><input type="radio" name="q9" value="c">c) El pueblo, por votación directa</label></div></div>
+                <div class="question"><p><strong>10. La Comunidad Iberoamericana de Naciones está formada por países de América Latina, España, Portugal y...</strong></p><div class="options"><label><input type="radio" name="q10" value="a">a) Francia</label><label><input type="radio" name="q10" value="b">b) Andorra</label><label><input type="radio" name="q10" value="c">c) Italia</label></div></div>
+                <button type="button" class="button" onclick="checkAnswers(2)">Evaluar Módulo 2</button>
+                <div id="results-2" class="quiz-results" style="display:none;"></div>
+                <button type="button" id="next-btn-2" class="button next-btn" style="display:none;" onclick="showModule(3)">Siguiente Módulo →</button>
+            </form>
+        </div>
+        
+        <!-- Módulo 3 -->
+        <div id="module-3" class="module">
+            <h2>Módulo 3: Poderes Ejecutivo, Legislativo y Judicial</h2>
+            <div class="module-content">
+                <h3>Contenido del Módulo</h3>
+                <p>En la Constitución se establece la separación de los poderes ejecutivo, legislativo y judicial. El <strong>Poder Ejecutivo</strong> lo ejerce el Gobierno, que dirige la política interior y exterior. Está formado por el presidente, vicepresidentes y ministros. Su sede está en Madrid. El <strong>Poder Legislativo</strong> corresponde a las Cortes Generales (Congreso de los Diputados y Senado), que representan al pueblo español. Su función es elaborar y aprobar las leyes y los Presupuestos Generales del Estado. El <strong>Poder Judicial</strong> está compuesto por jueces y magistrados, que administran la justicia. El Consejo General del Poder Judicial (CGPJ) es el órgano de gobierno de los jueces para garantizar su independencia.</p>
+            </div>
+            <form id="quiz-3" class="quiz-form">
+                <!-- 10 preguntas -->
+                <div class="question"><p><strong>1. ¿Qué poder dirige la política interior y exterior de España?</strong></p><div class="options"><label><input type="radio" name="q1" value="a">a) Poder Legislativo</label><label><input type="radio" name="q1" value="b">b) Poder Ejecutivo</label><label><input type="radio" name="q1" value="c">c) Poder Judicial</label></div></div>
+                <div class="question"><p><strong>2. ¿Quiénes forman las Cortes Generales?</strong></p><div class="options"><label><input type="radio" name="q2" value="a">a) El Congreso de los Diputados y el Senado</label><label><input type="radio" name="q2" value="b">b) El Gobierno y los ministros</label><label><input type="radio" name="q2" value="c">c) Los jueces y los fiscales</label></div></div>
+                <div class="question"><p><strong>3. ¿Cuál es la función principal del Poder Judicial?</strong></p><div class="options"><label><input type="radio" name="q3" value="a">a) Aprobar las leyes</label><label><input type="radio" name="q3" value="b">b) Administrar la justicia</label><label><input type="radio" name="q3" value="c">c) Dirigir la Administración</label></div></div>
+                <div class="question"><p><strong>4. ¿Quién forma el Gobierno?</strong></p><div class="options"><label><input type="radio" name="q4" value="a">a) El presidente, vicepresidentes y ministros</label><label><input type="radio" name="q4" value="b">b) Solo los diputados y senadores</label><label><input type="radio" name="q4" value="c">c) El Rey y su familia</label></div></div>
+                <div class="question"><p><strong>5. ¿Qué órgano de gobierno tienen los jueces para garantizar su independencia?</strong></p><div class="options"><label><input type="radio" name="q5" value="a">a) El Ministerio de Justicia</label><label><input type="radio" name="q5" value="b">b) El Consejo General del Poder Judicial (CGPJ)</label><label><input type="radio" name="q5" value="c">c) El Tribunal Supremo</label></div></div>
+                <div class="question"><p><strong>6. ¿A quién representan las Cortes Generales?</strong></p><div class="options"><label><input type="radio" name="q6" value="a">a) Al pueblo español</label><label><input type="radio" name="q6" value="b">b) Al Gobierno</label><label><input type="radio" name="q6" value="c">c) A la Unión Europea</label></div></div>
+                <div class="question"><p><strong>7. ¿Dónde tiene su sede el Gobierno de España?</strong></p><div class="options"><label><input type="radio" name="q7" value="a">a) En Barcelona</label><label><input type="radio" name="q7" value="b">b) En Madrid</label><label><input type="radio" name="q7" value="c">c) En Sevilla</label></div></div>
+                <div class="question"><p><strong>8. ¿Cuál es la tercera autoridad del Estado español?</strong></p><div class="options"><label><input type="radio" name="q8" value="a">a) El presidente del Congreso de los Diputados</label><label><input type="radio" name="q8" value="b">b) El presidente del Senado</label><label><input type="radio" name="q8" value="c">c) El ministro de Justicia</label></div></div>
+                <div class="question"><p><strong>9. La justicia que proviene del pueblo es administrada por...</strong></p><div class="options"><label><input type="radio" name="q9" value="a">a) El Gobierno</label><label><input type="radio" name="q9" value="b">b) Jueces y magistrados</label><label><input type="radio" name="q9" value="c">c) La Policía</label></div></div>
+                <div class="question"><p><strong>10. ¿Qué poder aprueba los Presupuestos Generales del Estado?</strong></p><div class="options"><label><input type="radio" name="q10" value="a">a) El Poder Ejecutivo</label><label><input type="radio" name="q10" value="b">b) El Poder Judicial</label><label><input type="radio" name="q10" value="c">c) El Poder Legislativo</label></div></div>
+                <button type="button" class="button" onclick="checkAnswers(3)">Evaluar Módulo 3</button>
+                <div id="results-3" class="quiz-results" style="display:none;"></div>
+                <button type="button" id="next-btn-3" class="button next-btn" style="display:none;" onclick="showModule(4)">Siguiente Módulo →</button>
+            </form>
+        </div>
+
+        <!-- Módulo 4 -->
+        <div id="module-4" class="module">
+            <h2>Módulo 4: Organización Territorial de España</h2>
+            <div class="module-content">
+                <h3>Contenido del Módulo</h3>
+                <p>España se organiza en municipios, provincias y Comunidades Autónomas. Hay 17 comunidades autónomas y 2 ciudades autónomas (Ceuta y Melilla). La norma básica de cada comunidad es el Estatuto de Autonomía. Existen 50 provincias. El órgano de gobierno de la provincia es la Diputación. Existen 8.131 municipios, cuyo órgano de gobierno es el Ayuntamiento, formado por el alcalde y los concejales. España es el cuarto país más poblado de la UE, con más de 48 millones de habitantes. Las ciudades más pobladas son Madrid y Barcelona.</p>
+            </div>
+            <form id="quiz-4" class="quiz-form">
+                <!-- 10 preguntas -->
+                <div class="question"><p><strong>1. ¿Cuántas comunidades autónomas hay en España?</strong></p><div class="options"><label><input type="radio" name="q1" value="a">a) 15</label><label><input type="radio" name="q1" value="b">b) 17</label><label><input type="radio" name="q1" value="c">c) 19</label></div></div>
+                <div class="question"><p><strong>2. ¿Cómo se llaman las dos ciudades autónomas de España?</strong></p><div class="options"><label><input type="radio" name="q2" value="a">a) Ibiza y Formentera</label><label><input type="radio" name="q2" value="b">b) Ceuta y Melilla</label><label><input type="radio" name="q2" value="c">c) Mallorca y Menorca</label></div></div>
+                <div class="question"><p><strong>3. ¿Cuál es la norma institucional básica de cada comunidad autónoma?</strong></p><div class="options"><label><input type="radio" name="q3" value="a">a) La Constitución</label><label><input type="radio" name="q3" value="b">b) El Estatuto de Autonomía</label><label><input type="radio" name="q3" value="c">c) La Ley de Bases</label></div></div>
+                <div class="question"><p><strong>4. ¿Cómo se llama el órgano de gobierno de un municipio?</strong></p><div class="options"><label><input type="radio" name="q4" value="a">a) Diputación</label><label><input type="radio" name="q4" value="b">b) Ayuntamiento</label><label><input type="radio" name="q4" value="c">c) Cabildo</label></div></div>
+                <div class="question"><p><strong>5. ¿Cuántas provincias hay en España?</strong></p><div class="options"><label><input type="radio" name="q5" value="a">a) 48</label><label><input type="radio" name="q5" value="b">b) 50</label><label><input type="radio" name="q5" value="c">c) 52</label></div></div>
+                <div class="question"><p><strong>6. ¿Quiénes forman el Ayuntamiento?</strong></p><div class="options"><label><input type="radio" name="q6" value="a">a) El alcalde y los concejales</label><label><input type="radio" name="q6" value="b">b) El presidente y los diputados</label><label><input type="radio" name="q6" value="c">c) Solo el alcalde</label></div></div>
+                <div class="question"><p><strong>7. ¿Cuál es la ciudad más poblada de España?</strong></p><div class="options"><label><input type="radio" name="q7" value="a">a) Barcelona</label><label><input type="radio" name="q7" value="b">b) Madrid</label><label><input type="radio" name="q7" value="c">c) Valencia</label></div></div>
+                <div class="question"><p><strong>8. ¿Qué órgano de gobierno tienen las provincias?</strong></p><div class="options"><label><input type="radio" name="q8" value="a">a) El Consejo Provincial</label><label><input type="radio" name="q8" value="b">b) La Diputación</label><label><input type="radio" name="q8" value="c">c) La Asamblea Provincial</label></div></div>
+                <div class="question"><p><strong>9. ¿Qué competencias importantes asumen las comunidades autónomas?</strong></p><div class="options"><label><input type="radio" name="q9" value="a">a) Defensa y relaciones exteriores</label><label><input type="radio" name="q9" value="b">b) Sanidad y educación</label><label><input type="radio" name="q9" value="c">c) Administración de justicia</label></div></div>
+                <div class="question"><p><strong>10. El Boletín Oficial del Estado (BOE) informa sobre...</strong></p><div class="options"><label><input type="radio" name="q10" value="a">a) Noticias deportivas</label><label><input type="radio" name="q10" value="b">b) Leyes, decretos y nombramientos</label><label><input type="radio" name="q10" value="c">c) Ofertas de empleo privadas</label></div></div>
+                <button type="button" class="button" onclick="checkAnswers(4)">Evaluar Módulo 4</button>
+                <div id="results-4" class="quiz-results" style="display:none;"></div>
+                <button type="button" id="next-btn-4" class="button next-btn" style="display:none;" onclick="showModule(5)">Siguiente Módulo →</button>
+            </form>
+        </div>
+
+        <!-- Módulo 5 -->
+        <div id="module-5" class="module">
+            <h2>Módulo 5: Derechos y Deberes Fundamentales</h2>
+            <div class="module-content">
+                <h3>Contenido del Módulo</h3>
+                <p>Los españoles son mayores de edad a los 18 años y son iguales ante la ley sin discriminación. Todos tienen derecho a la vida y se prohíbe la tortura. Se garantiza la libertad ideológica y religiosa, y el Estado es aconfesional. El domicilio es inviolable y las comunicaciones son secretas, salvo resolución judicial. Se reconoce el derecho a elegir libremente la residencia, a expresar opiniones, a la producción artística y a la libertad de prensa. También se garantiza el derecho de asociación, de participación política y de huelga. La enseñanza básica es obligatoria y gratuita. Todos deben pagar impuestos y tienen derecho a la negociación colectiva, a la Seguridad Social y a una vivienda digna.</p>
+            </div>
+            <form id="quiz-5" class="quiz-form">
+                <!-- 10 preguntas -->
+                <div class="question"><p><strong>1. ¿A qué edad se es mayor de edad en España?</strong></p><div class="options"><label><input type="radio" name="q1" value="a">a) 16 años</label><label><input type="radio" name="q1" value="b">b) 18 años</label><label><input type="radio" name="q1" value="c">c) 21 años</label></div></div>
+                <div class="question"><p><strong>2. ¿Reconoce España una religión oficial?</strong></p><div class="options"><label><input type="radio" name="q2" value="a">a) Sí, la católica</label><label><input type="radio" name="q2" value="b">b) No, el Estado es aconfesional</label><label><input type="radio" name="q2" value="c">c) Sí, varias son oficiales</label></div></div>
+                <div class="question"><p><strong>3. ¿Puede la policía entrar en un domicilio sin permiso ni resolución judicial?</strong></p><div class="options"><label><input type="radio" name="q3" value="a">a) Sí, en cualquier momento</label><label><input type="radio" name="q3" value="b">b) Solo si sospechan algo</label><label><input type="radio" name="q3" value="c">c) No, excepto si se está cometiendo un delito</label></div></div>
+                <div class="question"><p><strong>4. La enseñanza básica (de 6 a 16 años) en España es...</strong></p><div class="options"><label><input type="radio" name="q4" value="a">a) Obligatoria y gratuita</label><label><input type="radio" name="q4" value="b">b) Voluntaria y de pago</label><label><input type="radio" name="q4" value="c">c) Gratuita pero no obligatoria</label></div></div>
+                <div class="question"><p><strong>5. ¿Cuál es un deber fundamental de todos los ciudadanos?</strong></p><div class="options"><label><input type="radio" name="q5" value="a">a) Votar en las elecciones</label><label><input type="radio" name="q5" value="b">b) Pagar impuestos</label><label><input type="radio" name="q5" value="c">c) Hablar un segundo idioma</label></div></div>
+                <div class="question"><p><strong>6. ¿Qué derecho tienen los trabajadores para defender sus intereses?</strong></p><div class="options"><label><input type="radio" name="q6" value="a">a) Derecho a la huelga</label><label><input type="radio" name="q6" value="b">b) Derecho a no trabajar</label><label><input type="radio" name="q6" value="c">c) Derecho a vacaciones ilimitadas</label></div></div>
+                <div class="question"><p><strong>7. ¿Cuál es la edad mínima para contraer matrimonio en España?</strong></p><div class="options"><label><input type="radio" name="q7" value="a">a) 18 años</label><label><input type="radio" name="q7" value="b">b) 16 años</label><label><input type="radio" name="q7" value="c">c) No hay edad mínima</label></div></div>
+                <div class="question"><p><strong>8. ¿Están permitidas las asociaciones con fines ilegales?</strong></p><div class="options"><label><input type="radio" name="q8" value="a">a) Sí, si son secretas</label><label><input type="radio" name="q8" value="b">b) Están prohibidas</label><label><input type="radio" name="q8" value="c">c) Depende de sus fines</label></div></div>
+                <div class="question"><p><strong>9. ¿Se puede obligar a alguien a declarar sobre su ideología o religión?</strong></p><div class="options"><label><input type="radio" name="q9" value="a">a) Sí, por orden judicial</label><label><input type="radio" name="q9" value="b">b) No, nadie puede ser obligado</label><label><input type="radio" name="q9" value="c">c) Solo la policía puede hacerlo</label></div></div>
+                <div class="question"><p><strong>10. El derecho a disfrutar de una vivienda digna y adecuada es un derecho...</strong></p><div class="options"><label><input type="radio" name="q10" value="a">a) Que tienen solo los españoles</label><label><input type="radio" name="q10" value="b">b) Reconocido en la Constitución</label><label><input type="radio" name="q10" value="c">c) Que depende de los ayuntamientos</label></div></div>
+                <button type="button" class="button" onclick="checkAnswers(5)">Evaluar Módulo 5</button>
+                <div id="results-5" class="quiz-results" style="display:none;"></div>
+                <button type="button" id="next-btn-5" class="button next-btn" style="display:none;" onclick="showModule(6)">Siguiente Módulo →</button>
+            </form>
+        </div>
+
+        <!-- Módulo 6 -->
+        <div id="module-6" class="module">
+            <h2>Módulo 6: Geografía Física y Clima de España</h2>
+            <div class="module-content">
+                <h3>Contenido del Módulo</h3>
+                <p>España está en el sur de Europa y es el cuarto país más grande del continente. Es un país muy montañoso, con una altitud media de 650 metros. Sus ríos más importantes que desembocan en el Atlántico son Miño, Duero, Tajo, Guadiana y Guadalquivir; en el Mediterráneo desembocan el Ebro, Júcar y Segura. La Meseta es una extensa llanura en el centro. Los sistemas montañosos más importantes son los Pirineos, el Sistema Central y los Sistemas Béticos. El pico más alto de España es el Teide (Tenerife), y de la península es el Mulhacén (Sierra Nevada). España tiene una gran variedad de climas: oceánico (norte), mediterráneo (este y sur), continental (centro) y subtropical (Canarias).</p>
+            </div>
+            <form id="quiz-6" class="quiz-form">
+                <!-- 10 preguntas -->
+                <div class="question"><p><strong>1. ¿Cuál es el pico más alto de España?</strong></p><div class="options"><label><input type="radio" name="q1" value="a">a) Aneto</label><label><input type="radio" name="q1" value="b">b) Mulhacén</label><label><input type="radio" name="q1" value="c">c) Teide</label></div></div>
+                <div class="question"><p><strong>2. ¿Qué río desemboca en el mar Mediterráneo?</strong></p><div class="options"><label><input type="radio" name="q2" value="a">a) Duero</label><label><input type="radio" name="q2" value="b">b) Tajo</label><label><input type="radio" name="q2" value="c">c) Ebro</label></div></div>
+                <div class="question"><p><strong>3. ¿Qué tipo de clima es propio de las Islas Canarias?</strong></p><div class="options"><label><input type="radio" name="q3" value="a">a) Subtropical</label><label><input type="radio" name="q3" value="b">b) Continental</label><label><input type="radio" name="q3" value="c">c) Oceánico</label></div></div>
+                <div class="question"><p><strong>4. La extensa llanura del centro de la península se llama...</strong></p><div class="options"><label><input type="radio" name="q4" value="a">a) Depresión del Guadalquivir</label><label><input type="radio" name="q4" value="b">b) Meseta</label><label><input type="radio" name="q4" value="c">c) Valle del Ebro</label></div></div>
+                <div class="question"><p><strong>5. ¿Dónde se encuentra el pico Mulhacén?</strong></p><div class="options"><label><input type="radio" name="q5" value="a">a) En los Pirineos</label><label><input type="radio" name="q5" value="b">b) En Sierra Nevada</label><label><input type="radio" name="q5" value="c">c) En el Sistema Central</label></div></div>
+                <div class="question"><p><strong>6. El clima del norte de España, lluvioso y con temperaturas suaves, es de tipo...</strong></p><div class="options"><label><input type="radio" name="q6" value="a">a) Mediterráneo</label><label><input type="radio" name="q6" value="b">b) Oceánico</label><label><input type="radio" name="q6" value="c">c) Continental</label></div></div>
+                <div class="question"><p><strong>7. ¿Cuál de estos ríos desemboca en el océano Atlántico?</strong></p><div class="options"><label><input type="radio" name="q7" value="a">a) Júcar</label><label><input type="radio" name="q7" value="b">b) Segura</label><label><input type="radio" name="q7" value="c">c) Tajo</label></div></div>
+                <div class="question"><p><strong>8. ¿Con qué país NO tiene frontera terrestre España?</strong></p><div class="options"><label><input type="radio" name="q8" value="a">a) Francia</label><label><input type="radio" name="q8" value="b">b) Italia</label><label><input type="radio" name="q8" value="c">c) Portugal</label></div></div>
+                <div class="question"><p><strong>9. ¿Qué caracteriza al clima continental del interior de la península?</strong></p><div class="options"><label><input type="radio" name="q9" value="a">a) Temperaturas suaves todo el año</label><label><input type="radio" name="q9" value="b">b) Temperaturas extremas (inviernos fríos y veranos calurosos)</label><label><input type="radio" name="q9" value="c">c) Lluvias muy abundantes todo el año</label></div></div>
+                <div class="question"><p><strong>10. España tiene 16 parques...</strong></p><div class="options"><label><input type="radio" name="q10" value="a">a) Nacionales</label><label><input type="radio" name="q10" value="b">b) Acuáticos</label><label><input type="radio" name="q10" value="c">c) Temáticos</label></div></div>
+                <button type="button" class="button" onclick="checkAnswers(6)">Evaluar Módulo 6</button>
+                <div id="results-6" class="quiz-results" style="display:none;"></div>
+                <button type="button" id="next-btn-6" class="button next-btn" style="display:none;" onclick="showCompletionMessage()">Finalizar Curso</button>
+            </form>
+        </div>
+
+        <div id="completion-message" class="module" style="text-align:center; padding: 30px; background-color: #d1e7dd; border-radius: 8px;">
+            <h2>¡Felicidades!</h2>
+            <p>Has completado todos los módulos del curso de preparación CCSE 2025.</p>
+            <button class="button" onclick="location.reload()">Reiniciar Curso</button>
+        </div>
+
+    </div>
+
+    <script>
+        const totalModules = 6; // Actualizado al número de módulos
+        const completedModules = new Set();
+
+        const correctAnswers = {
+            1: { q1: 'b', q2: 'c', q3: 'b', q4: 'c', q5: 'a', q6: 'b', q7: 'b', q8: 'b', q9: 'b', q10: 'a' },
+            2: { q1: 'b', q2: 'c', q3: 'b', q4: 'b', q5: 'b', q6: 'b', q7: 'c', q8: 'b', q9: 'a', q10: 'b' },
+            3: { q1: 'b', q2: 'a', q3: 'b', q4: 'a', q5: 'b', q6: 'a', q7: 'b', q8: 'a', q9: 'b', q10: 'c' },
+            4: { q1: 'b', q2: 'b', q3: 'b', q4: 'b', q5: 'b', q6: 'a', q7: 'b', q8: 'b', q9: 'b', q10: 'b' },
+            5: { q1: 'b', q2: 'b', q3: 'c', q4: 'a', q5: 'b', q6: 'a', q7: 'b', q8: 'b', q9: 'b', q10: 'b' },
+            6: { q1: 'c', q2: 'c', q3: 'a', q4: 'b', q5: 'b', q6: 'b', q7: 'c', q8: 'b', q9: 'b', q10: 'a' }
+        };
+
+        function updateProgressBar() {
+            const progress = (completedModules.size / totalModules) * 100;
+            const progressBar = document.getElementById('progressBar');
+            progressBar.style.width = progress + '%';
+            progressBar.textContent = Math.round(progress) + '%';
+        }
+
+        function checkAnswers(moduleNumber) {
+            const form = document.getElementById('quiz-' + moduleNumber);
+            const resultsDiv = document.getElementById('results-' + moduleNumber);
+            const answers = correctAnswers[moduleNumber];
+            let score = 0;
+            let allAnswered = true;
+
+            form.querySelectorAll('.options label').forEach(label => {
+                label.classList.remove('correct-answer-label', 'incorrect-answer-label');
+            });
+
+            for (const question in answers) {
+                const selected = form.querySelector(`input[name="${question}"]:checked`);
+                if (!selected) {
+                    allAnswered = false;
+                    break;
+                }
+                const parentLabel = selected.parentElement;
+                if (selected.value === answers[question]) {
+                    score++;
+                    parentLabel.classList.add('correct-answer-label');
+                } else {
+                    parentLabel.classList.add('incorrect-answer-label');
+                    const correctRadio = form.querySelector(`input[name="${question}"][value="${answers[question]}"]`);
+                    if(correctRadio) correctRadio.parentElement.classList.add('correct-answer-label');
+                }
+            }
+
+            if (!allAnswered) {
+                alert('Por favor, responde todas las preguntas antes de evaluar.');
+                return;
+            }
+            
+            form.querySelectorAll('input[type="radio"]').forEach(radio => radio.disabled = true);
+            form.querySelector('button').disabled = true;
+
+            const totalQuestions = Object.keys(answers).length;
+            resultsDiv.style.display = 'block';
+            resultsDiv.innerHTML = `Has acertado <strong>${score} de ${totalQuestions}</strong> preguntas.`;
+
+            if (score === totalQuestions) {
+                resultsDiv.className = 'quiz-results correct';
+            } else {
+                resultsDiv.className = 'quiz-results incorrect';
+            }
+            
+            completedModules.add(moduleNumber);
+            updateProgressBar();
+            document.getElementById('next-btn-' + moduleNumber).style.display = 'inline-block';
+        }
+
+        function showModule(moduleNumberToShow) {
+            document.querySelectorAll('.module').forEach(module => {
+                module.classList.remove('active');
+            });
+            document.getElementById('module-' + moduleNumberToShow).classList.add('active');
+        }
+
+        function showCompletionMessage() {
+            document.querySelectorAll('.module').forEach(module => {
+                module.classList.remove('active');
+            });
+            document.getElementById('completion-message').classList.add('active');
+        }
+
+        // Initialize
+        updateProgressBar();
+    </script>
+
+</body>
+</html>
